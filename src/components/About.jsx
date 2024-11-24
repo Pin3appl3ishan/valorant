@@ -39,7 +39,10 @@ const About = () => {
 
         <div className="about-subtext">
           <p>The Game of Games begins—your life, now an epic MMORPG</p>
-          <p>Valorant unites every player from countless games and platforms</p>
+          <p className="text-gray-500">
+            Valorant unites every player from countless games and platforms,
+            both digital and physical, into a unified Play Economy
+          </p>
         </div>
       </div>
 
@@ -48,7 +51,7 @@ const About = () => {
           <img
             src="img/about.webp"
             alt="Background"
-            className="absolute left-0 size-full object-cover"
+            className="absolute left-0 top-0 size-full object-cover"
           />
         </div>
       </div>
