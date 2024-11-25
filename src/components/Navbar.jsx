@@ -1,11 +1,19 @@
-import { useRef } from "react";
+import clsx from "clsx";
+import gsap from "gsap";
+import { useRef, useState } from "react";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
 
 const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
 
 const Navbar = () => {
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [isIndicatorActive, setIsIndicatorActive] = useState(false);
+
   const navContainerRef = useRef(null);
+  const audioElementRef = useRef(null);
+
+  const toggleAudioIndicator = () => {};
 
   return (
     <div
@@ -37,6 +45,28 @@ const Navbar = () => {
                 </a>
               ))}
             </div>
+
+            <button
+              className="ml-10 flex items-center space-x-0.5"
+              onClick={toggleAudioIndicator}
+            >
+              <audio
+                ref={audioElementRef}
+                src="/audio/loop.mp3"
+                className="hidden"
+              />
+              {[1, 2, 3, 4].map((bar) => (
+                <div
+                  key={bar}
+                  className={clsx("indicator-line", {
+                    active: isIndicatorActive,
+                  })}
+                  style={{
+                    animationDelay: `${bar * 0.1}s`,
+                  }}
+                />
+              ))}
+            </button>
           </div>
         </nav>
       </header>
