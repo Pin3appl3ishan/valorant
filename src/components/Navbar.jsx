@@ -13,7 +13,10 @@ const Navbar = () => {
   const navContainerRef = useRef(null);
   const audioElementRef = useRef(null);
 
-  const toggleAudioIndicator = () => {};
+  const toggleAudioIndicator = () => {
+    setIsAudioPlaying((prev) => !prev);
+    setIsIndicatorActive((prev) => !prev);
+  };
 
   return (
     <div
