@@ -1,8 +1,9 @@
-import clsx from "clsx";
+// import clsx from "clsx";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { TiLocationArrow } from "react-icons/ti";
+import { useWindowScroll } from "react-use";
 
 const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
 
@@ -12,6 +13,29 @@ const Navbar = () => {
 
   const navContainerRef = useRef(null);
   const audioElementRef = useRef(null);
+
+  const { y: currentScrollY } = useWindowScroll();
+  const [isNavVisible, setIsNavVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    if (currentScrollY === 0) {
+      // Topmost position: show navbar without floating-nav
+      setIsNavVisible(true);
+      navContainerRef.current.classList.remove("floating-nav");
+    } else if (currentScrollY > lastScrollY) {
+      // Scrolling down: hide navbar and apply floating-nav
+      setIsNavVisible(false);
+      navContainerRef.current.classList.add("floating-nav");
+    } else if (currentScrollY < lastScrollY) {
+      // Scrolling up: show navbar with floating-nav
+      setIsNavVisible(true);
+      navContainerRef.current.classList.add("floating-nav");
+    }
+    setLastScrollY(currentScrollY);
+  }, [currentScrollY, lastScrollY]);
+
+
 
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);
@@ -69,9 +93,12 @@ const Navbar = () => {
               {[1, 2, 3, 4].map((bar) => (
                 <div
                   key={bar}
-                  className={clsx("indicator-line", {
-                    active: isIndicatorActive,
-                  })}
+                  className={
+                    ("indicator-line",
+                    {
+                      active: isIndicatorActive,
+                    })
+                  }
                   style={{
                     animationDelay: `${bar * 0.1}s`,
                   }}
