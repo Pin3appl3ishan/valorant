@@ -46,6 +46,28 @@ const Features = () => {
             description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
           />
         </div>
+
+        <div className="grid h-[135vh] grid-cols-2 grid-rows-3 gap-7">
+          <div className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+            <BentoCard
+              src="/public/videos/feature-2.mp4"
+              title={
+                <>
+                  zig<b>m</b>a
+                </>
+              }
+              description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
+            />
+          </div>
+
+          <div className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+            <BentoCard
+            src="/public/videos/hero-3.mp4"
+            title={<>n<b>e</b>xus</>}
+            description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
