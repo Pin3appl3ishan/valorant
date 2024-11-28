@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { useRef } from "react";
 import AnimatedTitle from "./AnimatedTitle";
+import RoundedCorners from "./RoundedCorners";
 
 const Story = () => {
   const frameRef = useRef("null");
@@ -71,6 +72,9 @@ const Story = () => {
                 />
               </div>
             </div>
+
+            <RoundedCorners/>
+            
           </div>
         </div>
       </div>
