@@ -1,5 +1,5 @@
 import AnimatedTitle from "./AnimatedTitle";
-// import Button from "./Button";
+import Button from "./Button";
 
 const Contact = () => {
   const ImageClipBox = ({ src, clipClass }) => (
@@ -35,7 +35,7 @@ const Contact = () => {
 
         <div className="flex flex-col items-center text-center">
           <p className="mb-10 font-general text-[10px] uppercase">
-            Join Zentry
+            Join Valorant
           </p>
 
           <AnimatedTitle
@@ -43,6 +43,8 @@ const Contact = () => {
             className="special-font !md:text-[6.2rem] w-full font-zentry !text-5xl !font-black !leading-[.9]"
           />
 
+          <Button title="contact us" containerClass="mt-10 cursor-pointer" />
+        </div>
       </div>
     </div>
   );
